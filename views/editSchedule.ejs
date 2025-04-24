@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Aktivitas</title>
+    <link rel="stylesheet" href="/css/7.editSchedule.css" />
+</head>
+<body>
+    <h1>Edit Aktivitas</h1>
+
+    <form action="/schedule/edit/<%= schedule._id %>" method="POST">
+        <label>Nama Aktivitas:</label>
+        <input type="text" name="name" value="<%= schedule.name %>" required>
+      
+        <label>Waktu Mulai:</label>
+        <input type="datetime-local" name="startTime"
+               value="<%= dayjs(schedule.startTime).tz('Asia/Jakarta').format('YYYY-MM-DDTHH:mm') %>" required>
+      
+        <label>Waktu Selesai:</label>
+        <input type="datetime-local" name="endTime"
+               value="<%= dayjs(schedule.endTime).tz('Asia/Jakarta').format('YYYY-MM-DDTHH:mm') %>" required>
+      
+        <label>Jenis Aktivitas:</label>
+        <select name="activityType" required>
+          <option value="ringan" <%= schedule.activityType === 'ringan' ? 'selected' : '' %>>Ringan</option>
+          <option value="sedang" <%= schedule.activityType === 'sedang' ? 'selected' : '' %>>Sedang</option>
+          <option value="berat" <%= schedule.activityType === 'berat' ? 'selected' : '' %>>Berat</option>
+        </select>
+      
+        <button type="submit">Simpan Perubahan</button>
+    </form>
+      
+      
+
+    <a href="/schedule">Kembali</a>
+</body>
+</html>

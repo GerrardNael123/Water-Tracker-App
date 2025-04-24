@@ -1,0 +1,96 @@
+/* Reset dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #a4e2f7;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 35px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Judul Form */
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+/* Label dan input */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Tombol submit */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 12px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Tombol kembali */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 22px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}

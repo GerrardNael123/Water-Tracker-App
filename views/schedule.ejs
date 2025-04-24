@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Aktivitas</title>
+    <link rel="stylesheet" href="/css/6.schedule.css">
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <h2>Water Tracker</h2>
+    <ul>
+      <li><a href="#">🏠 Beranda</a></li>
+      <li><a href="/profile">👤 Profile </a></li>
+      <li><a href="/schedule">🗓 Schedule </a></li>
+      <li><a href="/auth/logout">🚪 Keluar</a></li>
+    </ul>
+  </div>
+  
+    <h1>Daftar Aktivitas</h1>
+
+    <form action="/schedule" method="POST">
+        <input type="text" name="name" placeholder="Nama Aktivitas" required>
+        <input type="datetime-local" name="startTime" required>
+        <input type="datetime-local" name="endTime" required>
+        <select name="activityType" required>
+            <option value="ringan">Ringan</option>
+            <option value="sedang">Sedang</option>
+            <option value="berat">Berat</option>
+        </select>
+        <button type="submit">Tambah Aktivitas</button>
+    </form>
+
+    <ul>
+        <% schedules.forEach(schedule => { %>
+            <div class="card">
+              <h3><%= schedule.name %></h3>
+              <p><%= schedule.startTime.toLocaleString() %> - <%= schedule.endTime.toLocaleString() %></p>
+              <p>Tipe: <%= schedule.activityType %></p>
+              <% if (schedule.reminderTime) { %>
+                <p><strong>Reminder:</strong> <%= schedule.reminderTime %></p>
+              <% } %>
+          
+              <% if (schedule.user.toString() === user) { %>
+                <!-- Tombol Edit -->
+                <form action="/schedule/edit/<%= schedule._id %>" method="GET" style="display:inline;">
+                  <button type="submit">Edit</button>
+                </form>
+          
+                <!-- Tombol Hapus -->
+                <form action="/schedule/delete/<%= schedule._id %>" method="POST" style="display:inline;">
+                  <button type="submit" onclick="return confirm('Yakin ingin menghapus jadwal ini?')">Hapus</button>
+                </form>
+              <% } %>
+            </div>
+          <% }); %>
+        
+    </ul>
+  <!-- Before the external JS file -->
+    <script>
+      const schedules = <%- JSON.stringify(schedules) %>;
+    </script>
+    <script src="/js/schedule.js"></script>
+
+</body>
+</html>

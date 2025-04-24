@@ -1,0 +1,174 @@
+/* ========== SIDEBAR ========== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #a4e2f7;
+    padding-top: 20px;
+    color: white;
+    transition: left 0.3s;
+    z-index: 999;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #5a9a99;
+    border-radius: 4px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f4fb;
+    color: #333;
+    margin-left: 200px;
+    padding: 20px;
+    overflow-y: auto; /* Tambahkan ini */
+}
+
+h1 {
+    color: #0b3d91;
+    margin-bottom: 20px;
+}
+
+/* Style untuk form tambah aktivitas */
+form {
+    background-color: #ccebf9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Jarak antar elemen form */
+}
+
+form input[type="text"],
+form input[type="datetime-local"],
+form select {
+    padding: 10px;
+    border: 1px solid #5a9a99;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="datetime-local"]:focus,
+form select:focus {
+    border-color: #0b3d91;
+    outline: none;
+}
+
+form button {
+    background-color: #5a9a99;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0b3d91;
+}
+
+/* Style untuk daftar aktivitas (list container) */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Jarak antar card */
+}
+
+/* Style untuk card aktivitas */
+.card {
+    background-color: #a4e2f7;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 500px;
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.card p {
+    margin-bottom: 30px; /* Sesuaikan nilai sesuai kebutuhan */
+}
+
+.card form {
+    display: flex;
+    flex-direction: column; /* Membuat tombol berada di bawah teks */
+    align-items: flex-start; /* Menyelaraskan tombol ke kiri */
+}
+
+.card form button {
+    background-color: #5a9a99;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 8px;
+    margin-bottom: 5px; /* Memberi jarak antara tombol */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.card form button:hover {
+    background-color: #0b3d91;
+}
+
+/* Membuat daftar aktivitas bisa di-scroll */
+ul {
+    overflow-y: auto; /* tambahkan scroll jika konten melebihi tinggi */
+    max-height: 500px; /* tinggi maksimum daftar aktivitas sebelum scroll muncul */
+    padding: 10px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    body {
+        margin-left: 0;
+        padding: 10px;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    form, .card {
+        max-width: 100%;
+    }
+}
+

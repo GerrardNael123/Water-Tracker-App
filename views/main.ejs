@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Tracker</title>
+  <link rel="stylesheet" href="/css/mainpage.css">
+</head>
+<body class="<%= isWarmMode ? 'warm-mode' : 'normal-mode' %>">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Water Tracker</h2>
+    <ul>
+      <li><a href="/">🏠 Beranda</a></li>
+      <li><a href="/profile">👤 Profile</a></li>
+      <li><a href="/schedule">🗓 Schedule</a></li>
+      <li><a href="/auth/logout">🚪 Keluar</a></li>
+    </ul>
+  </div>
+
+  <!-- Container utama -->
+  <div class="container">
+    <h1><%= currentAmount %> / <%= targetAmount %> ml</h1>
+
+    <p class="instruction">
+      After drinking a glass of water, click the "+" to record it.
+    </p>
+
+    <!-- Tombol untuk menampilkan opsi -->
+    <button id="addButton" type="button">+</button>
+
+    <!-- Opsi gambar air -->
+    <div id="addOptions" style="display: none;">
+      <% const options = [
+        { ml: 250, img: 'glass of water.png' },
+        { ml: 500, img: 'bottle of water.png' },
+        { ml: 750, img: 'tumbler.png' },
+      ]; %>
+
+      <% options.forEach(opt => { %>
+        <form action="/add" method="POST" class="water-option-form">
+          <input type="hidden" name="ml" value="<%= opt.ml %>">
+          <input type="hidden" name="img" value="<%= opt.img %>">
+
+          <button type="submit" class="image-button">
+            <img src="/images/<%= opt.img %>" width="100">
+            <div><%= opt.ml %> ml</div>
+          </button>
+        </form>
+      <% }) %>
+    </div>
+
+    <div class ="log-wrapper">
+      <% logs.forEach(log => { %>
+          <div class="log-entry">
+            <img src="/images/<%= log.img %>" width="100" data-ml="<%= log.ml %>">
+            <p><%= log.ml %>ml @ <%= log.time %></p>
+        
+            <!-- Tombol Edit -->
+            <button type="button" class="edit-btn" data-id="<%= log._id %>">Edit</button>
+        
+            <!-- Form Edit (langsung setelah tombol Edit!) -->
+            <form action="/edit/<%= log._id %>" method="POST" class="edit-form" style="display: none;">
+              <label for="newMl">Ubah jumlah air (ml):</label>
+              <input type="number" name="newMl" value="<%= log.ml %>" min="1" max="2000" required>
+        
+              <h3>Gambar Saat Ini:</h3>
+              <div>
+                <img src="/images/<%= log.img %>" width="100">
+                <p><%= log.ml %>ml</p>
+              </div>
+        
+              <button type="submit">Update</button>
+            </form>
+        
+            <!-- Tombol Delete (opsional) -->
+            <form action="/delete/<%= log._id %>" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+        <% }) %>
+    </div>
+    
+
+    <!-- Tombol Reset dan Warm Mode -->
+    <div class="bottom-buttons">
+      <form action="/reset" method="POST">
+        <button type="submit" class="reset-button">Reset Progress</button>
+      </form>
+
+      <form action="/toggleMode" method="POST">
+        <button type="submit" class="warmmode-button">
+          <%= isWarmMode ? 'Normal Mode 💧' : 'Warm Mode 🔥' %>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <% if (isTargetReached) { %>
+    <div id="congrats-popup" class="popup">
+      <div class="popup-content">
+        <img src="/images/happy mascot.png" alt="Congrats!" width="150">
+        <h2>🎉 Selamat! 🎉</h2>
+        <p>Kamu telah mencapai target harianmu! 💧</p>
+        <button id="close-popup">Tutup</button>
+      </div>
+    </div>
+  <% } %>
+
+ 
+
+
+  <script>
+    const addButton = document.getElementById('addButton');
+    const addOptions = document.getElementById('addOptions');
+
+    addButton.addEventListener('click', () => {
+      addOptions.style.display = addOptions.style.display === 'none' ? 'flex' : 'none';
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const editButtons = document.querySelectorAll('.edit-btn');
+
+    editButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const form = this.nextElementSibling; // Ambil elemen setelah tombol
+        if (form && form.classList.contains('edit-form')) {
+          form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+        }
+      });
+    });
+  });
+
+    const closeBtn = document.getElementById('close-popup');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        const popup = document.getElementById('congrats-popup');
+        popup.style.display = 'none';
+      });
+    }
+    
+
+  </script>
+
+</body>
+</html>

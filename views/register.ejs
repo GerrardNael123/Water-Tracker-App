@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Hydration Reminder</title>
+    <link rel="stylesheet" href="/css/1.styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="text-content">
+            <div class="logo">
+                <img src="/images/pngegg.png" alt="Water Drop Logo" class="logo-icon">
+                <h1>Create Account</h1>
+            </div>
+            <p class="subtitle">Stay hydrated, stay healthy</p>
+            
+            <div id="auth-container" class="auth-box">
+                <form id="register-form" class="auth-form" method="post" action="/auth/register">
+                    <h2>Create an Account</h2>
+                    <input type="text" id="new-username" name="username" placeholder="Username" class="auth-input" required autocomplete="off">
+                    <input type="password" id="new-password" name="password" placeholder="Password" class="auth-input" required>
+                    <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm Password" class="auth-input" required>
+                    <button type="submit" class="btn auth-btn">REGISTER</button>
+                    <p class="auth-link">Already have an account? <a href="/auth/login">Login here</a></p>
+                </form>
+
+                <% if (typeof error !== "undefined" && error !== null) { %>
+                    <p style="color: red; text-align: center;"><%= error %></p>
+                <% } %>
+
+            </div>
+        </div>
+        <div class="image-content">
+            <img src="/images/pngegg.png" alt="Hydration Illustration" class="water-image">
+        </div>
+    </div>
+
+    <!-- <script src="1.auth.js"></script> -->
+</body>
+</html>

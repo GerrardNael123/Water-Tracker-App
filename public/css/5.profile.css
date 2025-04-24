@@ -1,0 +1,158 @@
+/* ========== SIDEBAR ========== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #a4e2f7;
+    padding-top: 20px;
+    color: white;
+    transition: left 0.3s;
+    z-index: 999;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #5a9a99;
+    border-radius: 4px;
+}
+
+/* Body untuk membuat seluruh halaman berwarna */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f4fb; /* Warna background yang mirip dengan halaman schedule */
+    margin: 0; /* Menghilangkan margin default body */
+    padding: 0;
+}
+
+/* Container untuk halaman profile */
+.profile-container {
+    margin-left: 200px; /* Sesuaikan dengan lebar sidebar */
+    padding: 40px 30px;
+    max-width: 600px;
+    min-height: 100vh; /* Memastikan container memenuhi tinggi layar */
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Styling judul */
+.profile-container h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #3a3a3a;
+}
+
+/* Styling form */
+.profile-container form {
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    max-width: 100%;
+}
+
+/* Styling input */
+.profile-container input[type="text"],
+.profile-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.profile-container input[type="text"]:focus,
+.profile-container input[type="password"]:focus {
+    border-color: #0b3d91;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(11, 61, 145, 0.1);
+}
+
+/* Styling button */
+.profile-container button {
+    background-color: #5a9a99;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.profile-container button:hover {
+    background-color: #0b3d91;
+}
+
+/* Styling form "Change Password" */
+.profile-container form:nth-of-type(2) {
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    max-width: 100%;
+}
+
+/* Styling input pada form "Change Password" */
+.profile-container form:nth-of-type(2) input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.profile-container form:nth-of-type(2) input[type="password"]:focus {
+    border-color: #0b3d91;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(11, 61, 145, 0.1);
+}
+
+/* Styling button pada form "Change Password" */
+.profile-container form:nth-of-type(2) button {
+    background-color: #5a9a99;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.profile-container form:nth-of-type(2) button:hover {
+    background-color: #0b3d91;
+}

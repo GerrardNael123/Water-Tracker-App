@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Water Tracker</title>
+  <link rel="stylesheet" href="/css/5.profile.css" />
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <h2>Water Tracker</h2>
+    <ul>
+      <li><a href="/">🏠 Beranda</a></li>
+      <li><a href="/profile">👤 Profile </a></li>
+      <li><a href="/schedule">🗓️ Schedule </a></li>
+      <li><a href="/auth/logout">🚪 Keluar</a></li>
+    </ul>
+    </div>
+    
+    <div class="profile-container">
+        <h2>My Profile</h2>
+
+        <form method="POST" action="/profile/update">
+            <input name="name" value="<%= user.name %>" />
+            <button>Update Name</button>
+        </form>
+  
+        <form method="POST" action="/profile/password">
+            <input name="currentPassword" type="password" placeholder="Current Password" />
+            <input name="newPassword" type="password" placeholder="New Password" />
+            <button>Change Password</button>
+        </form>  
+
+        <form method="POST" action="/profile/delete" onsubmit="return confirm('Yakin ingin hapus akun?')">
+            <button>Delete My Account</button>
+        </form>
+    </div>
+</body>

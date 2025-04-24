@@ -1,0 +1,82 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f4fb; /* Warna latar belakang lembut */
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    color: #0b3d91; /* Warna biru gelap untuk judul */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    background-color: #ccebf9; /* Warna latar belakang form */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Jarak antar elemen */
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+select {
+    padding: 10px;
+    border: 1px solid #5a9a99;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+select:focus {
+    border-color: #0b3d91;
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: #5a9a99; /* Warna tombol */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0b3d91;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #5a9a99;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0b3d91;
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+    form {
+        max-width: 100%;
+    }
+}
